@@ -16,4 +16,8 @@
   font-size:12px;
   text-align:center;
 }
+.user-profile{
+  text-decoration: none;
+  list-style: none;
+}
 
