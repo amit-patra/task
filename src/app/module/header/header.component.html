@@ -40,18 +40,18 @@
           <a class="btn btn-default action-button" role="button" href="#">Sign Up</a> -->
           <ul class="nav navbar-nav pull-right">
           <li class="dropdown user-profile">
-              <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Hello! Amit
+              <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Hello! {{loginUserName}}
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
                 <li role="presentation">
-                  <a href="#">Edit Profile</a>
+                  <a (click)="editProfile()">Edit Profile</a>
                 </li>
                 <li role="presentation">
-                  <a href="#">Change Password</a>
+                  <a (click)="editPassword()">Change Password</a>
                 </li>
                 <li role="presentation">
-                  <a href="#">Logout</a>
+                  <a (click)="logout()">Logout</a>
                 </li>
               </ul>
             </li>
@@ -60,4 +60,72 @@
       </div>
     </div>
   </nav>
+    <!-- Edit profile -->
+    <div class="modal fade" id="editProfileModal" role="dialog">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Update Profile</h4>
+          </div>
+          <div class="modal-body">
+              <form #Userform="ngForm">
+                  <div class="form-group">
+                      <label>Name:<span class="text-danger">*</span></label>
+                      <input type="text" class="form-control"  placeholder="Enter name" name="name" #name="ngModel" [(ngModel)]="userData.name" required>
+                      <p class="text-danger text-center" *ngIf="name?.dirty && name?.errors?.required">Please enter name</p>
+                  </div>
+                  <div class="form-group">
+                      <label>Email:</label>
+                      <input type="email" class="form-control" placeholder="Enter email" name="email" #email="ngModel" [(ngModel)]="userData.email" readonly>
+                  </div>
+                  <div class="form-group">
+                      <label>Address:</label>
+                      <textarea  type="text" class="form-control"  placeholder="Enter address" rows="3" name="address" #address="ngModel" [(ngModel)]="userData.address"></textarea>
+                  </div>
+                  <div class="form-group">
+                      <label >Phone:<span class="text-danger">*</span></label>
+                      <input type="number" class="form-control"  placeholder="Enter number" name="phone" #phone="ngModel" [(ngModel)]="userData.phone" pattern="^[0-9]{10}$" required>
+                      <p class="text-danger text-center" *ngIf="phone?.dirty && phone?.errors?.required">Please enter phone no</p>
+                      <p class="text-danger text-center" [hidden]="!phone.hasError('pattern')">Please enter valid format</p>
+                   </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success" [disabled]="!Userform.valid" (click)="updateProfile()">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Update password -->
+    <div class="modal fade" id="editPasswordModal" role="dialog">
+        <div class="modal-dialog modal-md">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Change Password</h4>
+            </div>
+            <div class="modal-body">
+                <form #changePasswordform="ngForm">
+                    <div class="form-group">
+                      <label>Password:</label>
+                      <input type="password" class="form-control" placeholder="Enter password" name="pwd" #pwd="ngModel" [(ngModel)]="passwordData.password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                      <p class="text-danger text-center" *ngIf="pwd?.dirty && pwd?.errors?.required">Please enter password</p>
+                      <p class="text-danger text-center" [hidden]="!pwd.hasError('pattern')">Password contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Reenter Password:</label>
+                        <input type="password" class="form-control" placeholder="Enter repeat password" name="Repeatpwd" #Repeatpwd="ngModel" [(ngModel)]="passwordData.newPassword" required>
+                        <p class="text-danger text-center" *ngIf="Repeatpwd?.dirty && Repeatpwd?.errors?.required">Please reEnter password</p>
+                      </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success"  [disabled]="!changePasswordform.valid" (click)="updatePassword()">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>

@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
 constructor(){}
 checkLogin(){
-  return true;
+  if(sessionStorage.getItem("islogin") == "true"){
+      return true;
+  }
 }
 }

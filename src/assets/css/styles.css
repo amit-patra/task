@@ -21,3 +21,86 @@
   list-style: none;
 }
 
+
+.table-width-th-5 {
+  width: 5%!important;
+}
+.table-width-th-10 {
+  width: 10%!important;
+}
+.table-width-th-15 {
+  width: 15%!important;
+}
+.table-width-th-20 {
+  width: 20%!important;
+}
+.table-width-th-25 {
+  width: 25%!important;
+}
+.table-width-th-30 {
+  width: 30%!important;
+}
+.table-width-th-35 {
+  width: 35%!important;
+}
+.table-width-th-40 {
+  width: 40%!important;
+}
+.table-width-th-45 {
+  width: 45%!important;
+}
+.table-width-th-50 {
+  width: 50%!important;
+}
+.table-width-th-55 {
+  width: 55%!important;
+}
+.table-width-th-60 {
+  width: 60%!important;
+}
+.table-width-th-65 {
+  width: 65%!important;
+}
+.table-width-th-70 {
+  width: 70%!important;
+}
+.table-width-th-75 {
+  width: 75%!important;
+}
+.table-width-th-80 {
+  width: 80%!important;
+}
+.table-width-th-85 {
+  width: 85%!important;
+}
+.table-width-th-90 {
+  width: 90%!important;
+}
+.table-width-th-95 {
+  width: 95%!important;
+}
+.table-width-th-100 {
+  width: 100%!important;
+} 
+.createTask{
+  margin-top: 10px;
+}
+.createTask .title{
+  font-size: 19px;
+  font-weight: bold;
+}
+.createTask .Addbtn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  margin-right: 5px;
+  padding: 0px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.createTask .search{
+  display: flex;
+}
+.createTask .icons{
+  font-size: 15px;
+}
